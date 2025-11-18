@@ -1,0 +1,61 @@
+title: Home Page
+
+tabs:
+  general:
+    columns:
+      main:
+        width: 2/3
+        sections:
+          fields:
+            type: fields
+            fields:
+              siteDescription:
+                type: text
+                label: Site Description
+                placeholder: Designer and developer
+              introText:
+                type: textarea
+                label: Intro Text
+              highlightedProjects:
+                type: blocks
+                label: Highlighted Projects
+                empty: "No projects to list"
+                fieldsets:
+                  - type: project
+                    name: Project
+                    preview: fields
+                    wysiwyg: true
+                    fields:
+                      image:
+                        type: files
+                        multiple: false
+                      title:
+                        type: text
+                        width: 1/2
+                      link:
+                        type: link
+                        width: 1/2
+              projects:
+                label: Projects
+                type: structure
+                fields:
+                  title:
+                    label: Title
+                    type: text
+                  url:
+                    label: URL
+                    type: link
+                  year:
+                    label: Year
+                    type: text
+              textField:
+                type: textarea
+                label: Text Field
+      sidebar:
+        width: 1/3
+        sections:
+          files:
+            type: files
+            label: Assets
+            batch: true
+  seo: tabs/seo

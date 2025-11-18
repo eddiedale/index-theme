@@ -1,0 +1,30 @@
+# The `site.yml` blueprint defines the look of the start page (Dashboard) of the Panel.
+
+# The site blueprint usually provides easy access to all main pages of the site.
+# In this example blueprint, we also show subpages of the `photography` and `blog` pages.
+# More about the site blueprint: https://getkirby.com/docs/reference/panel/blueprints/site
+
+tabs:
+  content:
+    label: Content
+    icon: document
+    columns:
+      - width: 1/2
+        sections:
+          pages:
+            label: Pages
+            type: pages
+            create: default
+            image: false
+      - width: 1/2
+        sections:
+          blog:
+            type: pages
+            label: Blog Posts
+            parent: kirby.page("blog")
+            info: "{{ page.published }}"
+            template: blogpost
+            empty: No posts yet
+            sortBy: date desc
+            image: false
+  seo: tabs/seo

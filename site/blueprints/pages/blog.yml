@@ -1,0 +1,16 @@
+title: Blog
+
+tabs:
+  content:
+    sections:
+      posts:
+        type: pages
+        label: Blog Posts
+        parent: kirby.page("blog")
+        info: "{{ page.published }}"
+        image: false
+        template: blogpost
+        empty: No posts yet
+        sortBy: date desc
+        batch: true
+  seo: tabs/seo

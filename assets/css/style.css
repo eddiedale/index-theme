@@ -1,0 +1,271 @@
+/* https://piccalil.li/blog/a-modern-css-reset */
+*,::after,::before{box-sizing:border-box}blockquote,body,dd,dl,figure,h1,h2,h3,h4,p{margin:0}ol[role=list],ul[role=list]{list-style:none}html:focus-within{scroll-behavior:smooth}body{min-height:100vh;text-rendering:optimizeSpeed;line-height:1.5}a:not([class]){text-decoration-skip-ink:auto}img,picture{max-width:100%;display:block}button,input,select,textarea{font:inherit}@media (prefers-reduced-motion:reduce){html:focus-within{scroll-behavior:auto}*,::after,::before{animation-duration:0s!important;animation-iteration-count:1!important;transition-duration:0s!important;scroll-behavior:auto!important}}
+
+:root {
+  /* 
+    Default Color Schemes (Default is dark mode)
+    Primary = Background, Secondary = Text color.
+
+    Other options (From Flexoki):
+    Default Light Mode: #F2F0E5 / #1C1B1A;
+    Dark Mode Magenta: #24131D / #FEE4E5
+    Light Mode Magenta: #F6E6E2 / #24131D
+    Cyan Light Mode: #DDF1E4 / #101F1D
+    Cyan Dark Mode: #101F1D / #DDF1E4
+  */
+  --primary-color: #1C1B1A;
+  --secondary-color: #F2F0E5;
+
+  /* Font Family. Default is monospace. */
+  --font-family: ui-monospace, 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace';
+  /*--font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';*/
+  /*--font-family: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;*/
+  
+  --font-weight: 400;
+  --flow-space: 1.25rem; 
+
+  --font-size: clamp(14px, 1vw, 18px);
+  --max-site-width: 768px;
+}
+
+/* General setup */
+@view-transition {
+  navigation: auto;
+}
+::view-transition-group(*) {
+  animation-duration: 0.3s;
+}
+
+body {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight);
+  font-size: var(--font-size);
+  max-width: var(--max-site-width);
+  margin: 3rem auto;
+  padding-inline: .5rem;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+p {
+  line-height: 1.5;
+}
+
+li + li {
+  padding-top: .5rem;
+}
+
+.blog ul, .home ul {
+  list-style: none;
+}
+
+ul, ol {
+  padding-left:0;
+}
+
+li > ul, li > ol  {
+  padding-top: .5rem;
+  padding-left: 20px;
+}
+
+ul > li + li, 
+ul > li > ul,
+ol > li + li, 
+ol > li > ol {
+  padding-top: .3rem;
+}
+
+img {
+  width: 100%;
+}
+
+hr:before {
+  margin-top: 5rem;
+}
+
+figcaption {
+  margin-top: 0.5rem;
+}
+
+.home > * + *:not(p) {
+  margin-block-start: 4rem;
+}
+
+.home h1, .home h2, .home h3, .home h4 {
+  font-size: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+.home h1, .home a h3 { font-weight: inherit; }
+
+.home h1:before, .home h2:before, .home h3:before, .home h4:before {
+  display: none
+}
+
+
+
+h1 { font-size: 150%; }
+h2 { font-size: 125%; }
+h3 { font-size: 110%; }
+h4, h5, h6 { font-size: 100%; }
+
+h2, h3, h4, h5, h6 { 
+  padding-top: 4rem;
+}
+
+.post h1, .defaultPage h1 {
+  margin-bottom: 2rem;
+}
+
+.post img, .defaultPage img {
+  margin-bottom: .5rem;
+}
+
+h1:before, h2:before, h3:before, h4:before, h5:before, h6:before {
+  opacity: .25;
+  font-weight: 400;
+}
+
+h1:before {
+  content: "#";
+  margin-inline-start: -2ch;
+}
+
+h2:before {
+  content: "##";
+  margin-inline-start: -3ch;
+}
+
+h3:before {
+  content: "###";
+  margin-inline-start: -4ch;
+}
+
+:is(h1,h2,h3) {
+    display: flex;
+    gap: 1ch;
+}
+
+
+
+
+.flow > * + * {
+  margin-block-start: var(--flow-space, 1em);
+}
+
+
+
+
+pre { 
+  background: var(--secondary-color) !important;  
+  color: var(--primary-color);
+  padding: 0.25rem 0.5rem;
+}
+
+code {
+  padding: 0.25rem 0.5rem;
+  margin-inline: 0;
+  font-size: 75%;
+  background: var(--secondary-color) !important;
+  color: var(--primary-color);
+  display: inline-block;
+  margin: 0
+}
+
+pre code {
+  font-size: 75% !important;
+  overflow-x:scroll;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+
+  width:100%;
+
+  line-height: 1.5 !important;
+}
+
+
+
+body a:focus-visible {
+    outline: 2px dotted rebeccapurple;
+    outline-offset: 4px;
+}
+
+
+
+blockquote {
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  padding: 1.5rem;
+}
+
+
+.breadcrumbs {
+  font-size: 75%;
+  opacity: .5;
+  margin-bottom: .5rem;
+}
+
+.breadcrumbs a.current {
+  text-decoration: none;
+}
+
+.meta-info {
+  margin-top: 3rem;
+}
+
+.meta-info > * + * {
+  display: block;
+  margin-block-start: .5rem;
+}
+
+.flex-justify {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-justified > * { margin:0 }
+
+.rss {
+  font-size: 75%;
+}
+
+.highlightedProjects {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.highlightedProjects h2 {
+  grid-column: 1 / -1;
+}
+
+.highlightedProject h3 {
+  padding: 0;
+}

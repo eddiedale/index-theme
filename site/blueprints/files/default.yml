@@ -1,0 +1,13 @@
+title: Image
+
+accept: 
+  type: image
+
+sections:
+  content:
+    type: fields
+    fields:
+      alt:
+        label: Alternative Text
+        type: text
+          

@@ -1,0 +1,57 @@
+<?php
+
+snippet('header');
+
+?>
+
+<article class="blog">
+
+    <div aria-label="Breadcrumb" class="breadcrumbs">
+        <a href="<?= $site->url() ?>">Home</a> /
+        <a class="current" href="<?= $site->url() ?>" aria-current="page"><?= $page->title()->esc() ?></a>
+    </div>
+
+    <div class="flex-justify">
+
+        <h1><?= $page->title() ?></h1>
+
+        <div class="rss">
+            <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0.5C0 0.367392 0.0526784 0.240215 0.146447 0.146447C0.240215 0.0526784 0.367392 0 0.5 0C4.642 0 8 3.358 8 7.5C8 7.63261 7.94732 7.75979 7.85355 7.85355C7.75979 7.94732 7.63261 8 7.5 8C7.36739 8 7.24022 7.94732 7.14645 7.85355C7.05268 7.75979 7 7.63261 7 7.5C7 3.91 4.09 1 0.5 1C0.367392 1 0.240215 0.947322 0.146447 0.853553C0.0526784 0.759785 0 0.632608 0 0.5ZM0 3.5C0 3.36739 0.0526784 3.24021 0.146447 3.14645C0.240215 3.05268 0.367392 3 0.5 3C1.09095 3 1.67611 3.1164 2.22208 3.34254C2.76804 3.56869 3.26412 3.90016 3.68198 4.31802C4.09984 4.73588 4.43131 5.23196 4.65746 5.77793C4.8836 6.32389 5 6.90905 5 7.5C5 7.63261 4.94732 7.75979 4.85355 7.85355C4.75979 7.94732 4.63261 8 4.5 8C4.36739 8 4.24022 7.94732 4.14645 7.85355C4.05268 7.75979 4 7.63261 4 7.5C4 5.56667 2.43333 4 0.5 4C0.367392 4 0.240215 3.94732 0.146447 3.85355C0.0526784 3.75979 0 3.63261 0 3.5ZM1 6C0.868678 6 0.738642 6.02587 0.617317 6.07612C0.495991 6.12638 0.385752 6.20003 0.292893 6.29289C0.200035 6.38575 0.126375 6.49599 0.0761204 6.61732C0.0258657 6.73864 0 6.86868 0 7C0 7.13132 0.0258657 7.26136 0.0761204 7.38268C0.126375 7.50401 0.200035 7.61425 0.292893 7.70711C0.385752 7.79997 0.495991 7.87363 0.617317 7.92388C0.738642 7.97413 0.868678 8 1 8C1.26522 8 1.51957 7.89464 1.70711 7.70711C1.89464 7.51957 2 7.26522 2 7C2 6.73478 1.89464 6.48043 1.70711 6.29289C1.51957 6.10536 1.26522 6 1 6Z" fill="currentColor" style="fill:currentColor;"/>
+            </svg>
+            <a href="/feed.xml">
+                RSS Feed
+            </a>
+        </div>
+    </div>
+
+
+
+    <?php
+        // function that returns the formatted date
+        $callback = function($p) {
+          return $p->date()->toDate('Y');
+        };
+
+        // group items using $callback
+        $groupedItems = page('blog')->children()->listed()->sortBy('date', 'desc')->group($callback);
+
+        // output items by year
+        foreach ($groupedItems as $year => $itemsPerYear): ?>
+
+             <h2><?= $year ?></h2>
+            
+            <ul>
+                <?php foreach($itemsPerYear as $item): ?>
+                <li>
+                    <a href="<?= $item->url() ?>">
+                        <?= $item->title() ?>
+                    </a>
+                </li>
+                <?php endforeach; ?>
+            </ul>
+    <?php endforeach; ?>
+
+</article>
+
+<?php snippet('footer'); ?>
