@@ -24,7 +24,7 @@
   --font-weight: 400;
   --flow-space: 1.25rem; 
 
-  --font-size: clamp(14px, 1vw, 18px);
+  --font-size: clamp(13.5px, 2vw, 19px);
   --max-site-width: 768px;
 }
 
@@ -36,13 +36,19 @@
   animation-duration: 0.3s;
 }
 
+::selection {
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  text-shadow: none;
+}
+
 body {
   font-family: var(--font-family);
   font-weight: var(--font-weight);
   font-size: var(--font-size);
   max-width: var(--max-site-width);
   margin: 3rem auto;
-  padding-inline: .5rem;
+  padding-inline: 1rem;
   background-color: var(--primary-color);
   color: var(--secondary-color);
   -webkit-font-smoothing: subpixel-antialiased;
@@ -74,6 +80,7 @@ li + li {
 
 ul, ol {
   padding-left:0;
+  list-style-position: inside;
 }
 
 li > ul, li > ol  {
@@ -110,7 +117,10 @@ figcaption {
   padding: 0;
 }
 
-.home h1, .home a h3 { font-weight: inherit; }
+.home h1, .home a h3 { 
+  font-weight: inherit; 
+  margin-top: .33rem;
+}
 
 .home h1:before, .home h2:before, .home h3:before, .home h4:before {
   display: none
@@ -120,7 +130,7 @@ figcaption {
 
 h1 { font-size: 150%; }
 h2 { font-size: 125%; }
-h3 { font-size: 110%; }
+h3 { font-size: 100%; }
 h4, h5, h6 { font-size: 100%; }
 
 h2, h3, h4, h5, h6 { 
@@ -135,29 +145,31 @@ h2, h3, h4, h5, h6 {
   margin-bottom: .5rem;
 }
 
-h1:before, h2:before, h3:before, h4:before, h5:before, h6:before {
-  opacity: .25;
-  font-weight: 400;
-}
+@media (min-width: 1024px) {
+  h1:before, h2:before, h3:before, h4:before, h5:before, h6:before {
+    opacity: .25;
+    font-weight: 400;
+  }
 
-h1:before {
-  content: "#";
-  margin-inline-start: -2ch;
-}
+  h1:before {
+    content: "#";
+    margin-inline-start: -2ch;
+  }
 
-h2:before {
-  content: "##";
-  margin-inline-start: -3ch;
-}
+  h2:before {
+    content: "##";
+    margin-inline-start: -3ch;
+  }
 
-h3:before {
-  content: "###";
-  margin-inline-start: -4ch;
-}
+  h3:before {
+    content: "###";
+    margin-inline-start: -4ch;
+  }
 
-:is(h1,h2,h3) {
-    display: flex;
-    gap: 1ch;
+  :is(h1,h2,h3) {
+      display: flex;
+      gap: 1ch;
+  }
 }
 
 
