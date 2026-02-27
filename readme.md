@@ -47,7 +47,9 @@ Drop a `header-extra.php` snippet into `site/snippets/` to inject project-specif
 
 ### How to install this theme
 
-Index is installed as a Kirby plugin. Kirby picks it up automatically once it's in the right place — no extra configuration needed. If your Kirby project doesn't already have a `site/plugins/` folder, create one.
+Index is a plugin for [Kirby CMS](https://getkirby.com). If you haven't set up Kirby yet, start with the [Plainkit](https://getkirby.com/try) — it's a minimal Kirby installation with no content, no templates, and no styles, which makes it the ideal starting point for this theme. Follow the [Kirby quickstart guide](https://getkirby.com/docs/guide/quickstart) to get it running locally, then come back here.
+
+Once Kirby is up and running, install the theme by dropping it into `site/plugins/`. Kirby picks it up automatically — no extra configuration needed. If the `plugins/` folder doesn't exist yet, create it.
 
 There are three ways to install it:
 
