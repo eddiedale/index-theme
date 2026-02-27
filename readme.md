@@ -2,7 +2,7 @@
 
 ![Screenshot of the Index Theme for Kirby CMS](kirby-index-theme-screenshot.jpg)
 
-A minimal portfolio and blog theme for Kirby CMS. Built for Kirby 5 + PHP 8.4.
+A minimal portfolio and blog theme for Kirby CMS. Built for Kirby 5 + PHP 8.2+.
 
 Index is built for easy updates, not elaborate structure. No menu, no case studies, no complex navigation – because in my experience, that's where people get stuck and stop updating their portfolios.
 
@@ -17,7 +17,7 @@ Built-in RSS feed for your blog. Let readers subscribe and follow your writing w
 Automatic XML sitemap generation for search engines. Better indexing out of the box.
 
 ### Minimal CSS
-Under 6kb of CSS. Fast loading, easy to understand, simple to modify. No preprocessors, no frameworks, no complexity.
+Tiny CSS footprint. Fast loading, easy to understand, simple to modify. No preprocessors, no frameworks, no complexity.
 
 ### Adjustable colors (two-color palette)
 Pick your primary and accent color. That's it. The constraint keeps your site cohesive and makes customization trivial. Change two variables, done.
@@ -41,7 +41,7 @@ Drop a `header-extra.php` snippet into `site/snippets/` to inject project-specif
 
 ### Requirements
 
-- PHP 8.4 or higher
+- PHP 8.2 or higher (8.3+ recommended)
 - A web server
 - Kirby 5 (license required for production, see License section below)
 
