@@ -45,18 +45,32 @@ Drop a `header-extra.php` snippet into `site/snippets/` to inject project-specif
 - A web server
 - Kirby 5 (license required for production, see License section below)
 
-### Setup
+### How to install this theme
 
-1. Download or clone this repository
-2. Place the `index-theme` folder in `site/plugins/` of your Kirby installation
-3. The theme registers all templates, blueprints, snippets, and routes automatically
-4. Navigate to `/panel` in your browser and follow the on-screen instructions
+Index is installed as a Kirby plugin. Starting from a basic Kirby installation:
 
-You can learn more about Kirby at [getkirby.com](https://getkirby.com).
+1. Open your Kirby project folder. You should see a `site/` directory at the root.
+2. Inside `site/`, look for a `plugins/` folder. If it doesn't exist, create it.
+3. Download or clone this repository into that folder so the structure looks like this:
+
+```
+site/
+└── plugins/
+    └── index-theme/
+        ├── index.php
+        ├── blueprints/
+        ├── templates/
+        └── ...
+```
+
+4. That's it. Kirby picks up the plugin automatically on next load — no configuration needed.
+5. Navigate to `/panel` in your browser to set up your content.
 
 ### Customisation
 
-Templates, snippets, and blueprints in `site/` take priority over the plugin's defaults. Place overrides there to customise without modifying the plugin itself.
+Kirby always checks `site/templates/`, `site/snippets/`, and `site/blueprints/` before the plugin. To override anything from the theme without modifying the plugin itself, place a file with the same name in the corresponding `site/` folder.
+
+For example, to customise the header, create `site/snippets/header.php` and Kirby will use that instead of the plugin's version.
 
 ## What's Kirby?
 
