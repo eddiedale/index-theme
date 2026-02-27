@@ -47,11 +47,39 @@ Drop a `header-extra.php` snippet into `site/snippets/` to inject project-specif
 
 ### How to install this theme
 
-Index is installed as a Kirby plugin. Starting from a basic Kirby installation:
+Index is installed as a Kirby plugin. Kirby picks it up automatically once it's in the right place — no extra configuration needed. If your Kirby project doesn't already have a `site/plugins/` folder, create one.
 
-1. Open your Kirby project folder. You should see a `site/` directory at the root.
-2. Inside `site/`, look for a `plugins/` folder. If it doesn't exist, create it.
-3. Download or clone this repository into that folder so the structure looks like this:
+There are three ways to install it:
+
+#### Option 1: ZIP download (simplest)
+
+1. Download the ZIP from the [releases page](https://github.com/eddiedale/index-theme/releases)
+2. Extract it and rename the folder to `index-theme` if needed
+3. Place it in `site/plugins/`
+
+#### Option 2: Git submodule (recommended if your project is a git repo)
+
+Run this from the root of your Kirby project:
+
+```bash
+git submodule add https://github.com/eddiedale/index-theme.git site/plugins/index-theme
+```
+
+To pull in future theme updates:
+
+```bash
+git submodule update --remote site/plugins/index-theme
+```
+
+#### Option 3: Composer
+
+```bash
+composer require eddiedale/index-theme
+```
+
+---
+
+However you install it, the result should look like this:
 
 ```
 site/
@@ -63,8 +91,7 @@ site/
         └── ...
 ```
 
-4. That's it. Kirby picks up the plugin automatically on next load — no configuration needed.
-5. Navigate to `/panel` in your browser to set up your content.
+Navigate to `/panel` in your browser to set up your content.
 
 ### Customisation
 

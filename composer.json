@@ -1,0 +1,15 @@
+{
+    "name": "eddiedale/index-theme",
+    "description": "A minimal portfolio and blog theme for Kirby CMS",
+    "type": "kirby-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Eddie Dale",
+            "homepage": "https://eddiedale.com"
+        }
+    ],
+    "require": {
+        "getkirby/composer-installer": "^1.0"
+    }
+}
