@@ -1,0 +1,65 @@
+# The `site.yml` blueprint defines the look of the start page (Dashboard) of the Panel.
+
+# The site blueprint usually provides easy access to all main pages of the site.
+# In this example blueprint, we also show subpages of the `photography` and `blog` pages.
+# More about the site blueprint: https://getkirby.com/docs/reference/panel/blueprints/site
+
+tabs:
+  content:
+    label: Content
+    icon: document
+    columns:
+      - width: 1/1
+        sections:
+          siteDescription:
+            type: fields
+            fields:
+              siteDescription:
+                type: text
+                label: Site Description
+                placeholder: Designer and developer
+                help: Used as the tagline on the home page and as the description in the RSS feed.
+
+      - width: 1/2
+        sections:
+          pages:
+            label: Pages
+            type: pages
+            create: default
+      - width: 1/2
+        sections:
+          blog:
+            type: pages
+            label: Blog
+            parent: kirby.page("blog")
+            info: "{{ page.published }}"
+            template: blogpost
+            empty: No posts yet
+            sortBy: date desc
+            image: false
+  seo:
+    label: SEO
+    icon: menu
+    fields:
+      ogImage:
+        type: files
+        label: OG Image
+      metaDescription:
+        type: text
+        label: Meta Description
+  theme:
+    label: Theme
+    icon: palette
+    fields:
+      replyUrl:
+        type: url
+        label: Reply URL
+        placeholder: https://letterbird.co/yourname
+        help: "Shown as a "Reply by email" link on blog posts and in the RSS feed. <a href='https://letterbird.co' target='_blank'>Letterbird</a> is an easy way to set up a contact form for this."
+      blogListStyle:
+        type: select
+        label: Blog List Style
+        default: Index
+        options:
+          index: Index
+          continuous: Continuous Feed

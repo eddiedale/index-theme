@@ -1,0 +1,14 @@
+label: SEO
+icon: search
+fields:
+  metaTitle:
+    type: text
+    label: Meta title
+    placeholder: '{ page.title }'
+  metaDescription:
+    type: text
+    label: Meta description
+    placeholder: '{ page.text_content.short(255) }'
+  metaImage:
+    type: files
+    multiple: false
