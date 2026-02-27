@@ -55,7 +55,9 @@ tabs:
         type: url
         label: Reply URL
         placeholder: https://letterbird.co/yourname
-        help: "Shown as a "Reply by email" link on blog posts and in the RSS feed. <a href='https://letterbird.co' target='_blank'>Letterbird</a> is an easy way to set up a contact form for this."
+        help: >
+          Shown as a "Reply by email" link on blog posts and in the RSS feed.
+          <a href="https://letterbird.co" target="_blank">Letterbird</a> is an easy way to set up a contact form for this.
       blogListStyle:
         type: select
         label: Blog List Style
