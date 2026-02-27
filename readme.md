@@ -95,6 +95,21 @@ site/
 
 Navigate to `/panel` in your browser to set up your content.
 
+### Starter content
+
+The plugin ships with a `content/` folder containing a ready-to-go homepage, blog with one sample post, and an error page. To use it, copy the `content/` folder from the plugin into the root of your Kirby project:
+
+```
+your-kirby-project/
+└── content/        ← copy here
+```
+
+This gives you a working site immediately so you can see the theme in action before replacing it with your own content. From the root of your Kirby project, run:
+
+```bash
+cp -r site/plugins/index-theme/content/ content/
+```
+
 ### Customisation
 
 Kirby always checks `site/templates/`, `site/snippets/`, and `site/blueprints/` before the plugin. To override anything from the theme without modifying the plugin itself, place a file with the same name in the corresponding `site/` folder.

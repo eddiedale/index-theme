@@ -1,0 +1,31 @@
+Title: Home
+
+----
+
+Introtext: I design and build things for the web. Currently focused on making complex things simple.
+
+----
+
+Projects:
+
+-
+
+  title: apple.com
+  url: https://apple.com
+  year: "2024"
+
+-
+
+  title: openai.com
+  url: https://openai.com
+  year: "2023"
+
+-
+
+  title: teenage.engineering
+  url: https://teenage.engineering
+  year: "2022"
+
+----
+
+Textfield:

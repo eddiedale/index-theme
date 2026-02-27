@@ -1,0 +1,15 @@
+Title: The Importance of Design
+
+----
+
+Date: 2025-11-17
+
+----
+
+Text_content: Good design is not about how something looks. It is about how it works.
+
+Dieter Rams put it plainly: *Less, but better.* Every element should earn its place. If it does not serve a purpose, remove it. This is as true for a physical object as it is for a button on a screen.
+
+When design is done well, nobody notices it. The door opens the right way. The form submits without confusion. The page loads before impatience sets in. Good design is invisible — it gets out of the way and lets the person using it get on with what they actually came to do.
+
+That is what I try to keep in mind when I build things.
