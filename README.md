@@ -128,11 +128,13 @@ site/
 
 ### Starter content
 
-The theme ships with a `content/` folder containing a ready-to-go homepage, blog with one sample post, and an error page. Remove Plainkit's default content first, then copy the theme's in:
+The theme ships with a `content/` folder with some example content to show how the theme can be used.
+
+> **Note:** Only do this on a fresh install. If you've already added your own content, skip this step — the commands below will delete it.
 
 ```bash
-rm -rf content/
-cp -r site/plugins/index-theme/content/ content/
+rm -rf content/                                      # removes files from Plainkit
+cp -r site/plugins/index-theme/content/ content/     # copies starter content
 ```
 
 Replace it with your own content whenever you're ready.
