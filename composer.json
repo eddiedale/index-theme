@@ -10,6 +10,9 @@
         }
     ],
     "require": {
-        "getkirby/composer-installer": "^1.0"
+        "getkirby/composer-installer": "^1.1"
+    },
+    "suggest": {
+        "getkirby/cms": "Required to run Kirby CMS. Install alongside this plugin when starting a project from scratch with Composer."
     }
 }
