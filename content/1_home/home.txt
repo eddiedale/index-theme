@@ -2,10 +2,6 @@ Title: Front Page
 
 ----
 
-Sitedescription: Designer & Developer.
-
-----
-
 Introtext: 
 
 ----
@@ -51,11 +47,7 @@ Metadescription:
 
 ----
 
-Ogimage: []
-
-----
-
-Files: 
+Metaimage: []
 
 ----
 

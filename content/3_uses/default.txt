@@ -14,7 +14,7 @@ Metadescription:
 
 ----
 
-Ogimage: []
+Metaimage: []
 
 ----
 

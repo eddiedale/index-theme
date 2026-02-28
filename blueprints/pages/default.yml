@@ -14,9 +14,6 @@ tabs:
                 type: textarea
                 size: large
                 font: monospace
-              text:
-                type: textarea
-                size: large
       sidebar:
         width: 1/3
         sections:
