@@ -2,8 +2,12 @@ Title: Eve Rams
 
 ----
 
-Sitedescription: Designer & Developer
+Metatitle: Eve Rams
 
 ----
 
-Blogliststyle: index
+Metadescription: Designer & Developer
+
+----
+
+Ogimage: []

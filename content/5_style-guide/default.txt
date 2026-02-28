@@ -1,0 +1,112 @@
+Title: Style Guide
+
+----
+
+Text-content:
+
+This is a demonstration of all available formatting options in Markdown. Use this as a reference when writing new posts.
+
+## Text Formatting
+
+You can use **bold text** for emphasis or *italic text* for subtle stress. For even more emphasis, you can combine them: ***bold and italic***. Sometimes you need `inline code` when referencing functions or variables.
+
+## Heading 2
+### Heading 3
+
+## Lists
+
+### Unordered List
+
+- First item
+- Second item
+- Third item
+  - Nested item
+  - Another nested item
+- Fourth item
+
+### Ordered List
+
+1. First step
+2. Second step
+3. Third step
+   1. Sub-step
+   2. Another sub-step
+4. Final step
+
+## Links and References
+
+You can create [inline links](https://sans.supply) or reference external resources. For example, check out [Dieter Rams' ten principles](https://www.vitsoe.com/us/about/good-design) for good design.
+
+## Blockquotes
+
+> Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away.
+>
+> — Antoine de Saint-Exupéry
+
+Blockquotes are perfect for highlighting important quotes or emphasizing key points.
+
+## Code Blocks
+
+Here's an example of a simple PHP function:
+```php
+<?php
+
+function formatDate($timestamp) {
+    return date('F j, Y', $timestamp);
+}
+
+// Usage
+$post_date = formatDate(time());
+echo "Published: " . $post_date;
+
+// Output: Published: January 12, 2024
+
+?>
+```
+
+Syntax highlighting makes code more readable and helps distinguish between different elements.
+
+## Horizontal Rules
+
+You can add visual breaks between sections:
+
+---
+
+Like that. Use them sparingly to separate distinct topics or create breathing room in longer posts.
+
+## Nested Elements
+
+You can combine different elements:
+
+1. **Lists with bold text**
+   - And *italic nested items*
+   - With `inline code references`
+2. Links and emphasis: Check out [**this important resource**](https://example.com)
+
+## Best Practices
+
+- Keep paragraphs short and focused
+- Use headings to create clear hierarchy
+- Add code blocks when showing technical examples
+- Break up long sections with horizontal rules
+- Use emphasis sparingly—when everything is bold, nothing is
+
+---
+
+That covers the essential Markdown formatting options. Write clearly, format intentionally, and let the content speak for itself.
+
+----
+
+Metatitle: 
+
+----
+
+Metadescription: 
+
+----
+
+Ogimage: []
+
+----
+
+Uuid: llomo6azeh5mxpi6

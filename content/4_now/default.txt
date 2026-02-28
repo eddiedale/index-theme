@@ -1,0 +1,21 @@
+Title: Now
+
+----
+
+Text-content: Just installed the Index Theme for Kirby.
+
+----
+
+Metatitle: 
+
+----
+
+Metadescription: 
+
+----
+
+Ogimage: []
+
+----
+
+Uuid: SDGmOepCE9WLfGuT

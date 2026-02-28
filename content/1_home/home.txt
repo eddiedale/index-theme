@@ -1,31 +1,62 @@
-Title: Home
+Title: Front Page
 
 ----
 
-Introtext: I design and build things for the web. Currently focused on making complex things simple.
+Sitedescription: Designer & Developer.
+
+----
+
+Introtext: 
+
+----
+
+Highlightedprojects: [{"content":{"image":["file://8umbal14t24jxyjb"],"title":"Redesign Project","link":"","text":"Vasser"},"id":"3862ccb1-5a4c-462c-96f1-6cd04560c18b","isHidden":false,"type":"project"},{"content":{"image":["file://mqvyo9j2d1h6lpgd"],"title":"Checkout Flow","link":""},"id":"29bfab5d-2fe8-4128-875a-ae6143d779f3","isHidden":false,"type":"project"}]
 
 ----
 
 Projects:
 
 -
-
   title: apple.com
-  url: https://apple.com
-  year: "2024"
-
+  url: 'https://www.apple.com'
+  year: UX-Design
 -
-
   title: openai.com
-  url: https://openai.com
-  year: "2023"
-
+  url: 'https://www.openai.com'
+  year: Development
 -
-
+  title: microsoft.com
+  url: 'https://www.microsoft.com'
+  year: Development
+-
   title: teenage.engineering
-  url: https://teenage.engineering
-  year: "2022"
+  url: 'https://teenage.engineering/'
+  year: 'Design & Development'
+-
+  title: nothing.tech
+  url: 'https://nothing.tech'
+  year: 'Product Design'
 
 ----
 
-Textfield:
+Textfield: Check out (link: page://k6sBqphcm5131Grd text: my blog), or reach out to me at (link: https://mastodon.social/ text: Mastodon) or (link: https://github.com/ text: GitHub).
+
+----
+
+Metatitle: 
+
+----
+
+Metadescription: 
+
+----
+
+Ogimage: []
+
+----
+
+Files: 
+
+----
+
+Uuid: wljMYhm0m3e9QOwC
