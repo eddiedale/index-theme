@@ -69,9 +69,7 @@ cd my-site
 composer require eddiedale/index-theme
 ```
 
-3. Set your web server's document root to the `public/` folder (or `index.php` depending on your setup — see the [Kirby docs](https://getkirby.com/docs/guide/quickstart)).
-
-4. Remove the conflicting Plainkit files — see the step below.
+3. Remove the conflicting Plainkit files — see the step below.
 
 ---
 
@@ -130,9 +128,10 @@ site/
 
 ### Starter content
 
-The theme ships with a `content/` folder containing a ready-to-go homepage, blog with one sample post, and an error page. Copy it into the root of your project to see the theme in action immediately:
+The theme ships with a `content/` folder containing a ready-to-go homepage, blog with one sample post, and an error page. Remove Plainkit's default content first, then copy the theme's in:
 
 ```bash
+rm -rf content/
 cp -r site/plugins/index-theme/content/ content/
 ```
 
