@@ -14,7 +14,11 @@
 
     <?php foreach ($posts as $item): ?>
     <item>
+      <?php if (preg_match('/^\d{4}-\d{2}-\d{2}(-\d+)?$/', $item->title()->value())): ?>
+      <title/>
+      <?php else: ?>
       <title><?= Xml::encode($item->title()) ?></title>
+      <?php endif ?>
       <link><?= Xml::encode($item->url()) ?></link>
       <guid isPermaLink="false"><?= Xml::encode($item->id()) ?></guid>
       <pubDate><?= $item->date()->toDate('r') ?></pubDate>

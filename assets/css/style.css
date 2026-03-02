@@ -167,7 +167,20 @@ h2, h3, h4, h5, h6 {
 }
 
 .continuous .post + .post {
-    padding-top: 16rem;
+      margin-top: 6rem;
+      padding-top: 4rem;
+      position: relative;
+}
+
+.continuous .post + .post::before {
+    content: '· · ·';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--secondary-color);
+    letter-spacing: 0.5em;
+    line-height: 1;
 }
 
 .continuous article:first-of-type {

@@ -42,6 +42,40 @@ Kirby::plugin('eddiedale/index-theme', [
         'default' => DefaultPage::class,
     ],
 
+    'hooks' => [
+        'page.create:after' => function ($page) {
+            if ($page->intendedTemplate()->name() !== 'blogpost') {
+                return;
+            }
+
+            $today  = date('Y-m-d');
+            $parent = $page->parent();
+            $slug   = $today;
+            $i      = 2;
+
+            // Find a unique slug based on today's date
+            $slugExists = function ($s) use ($parent, $page) {
+                foreach ([$parent->children(), $parent->drafts()] as $collection) {
+                    foreach ($collection as $child) {
+                        if ($child->id() !== $page->id() && $child->slug() === $s) {
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            };
+
+            while ($slugExists($slug)) {
+                $slug = $today . '-' . $i++;
+            }
+
+            return kirby()->impersonate('kirby', function () use ($page, $today, $slug) {
+                $page = $page->update(['date' => $today, 'title' => $slug]);
+                return $page->changeSlug($slug);
+            });
+        }
+    ],
+
     'routes' => [
         [
             'pattern' => 'feed.xml',

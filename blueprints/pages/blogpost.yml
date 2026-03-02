@@ -1,5 +1,10 @@
 title: Blog Post
 
+create:
+  title: "{{ page.content.uuid }}"
+  slug: "{{ page.content.uuid }}"
+  status: listed
+
 tabs:
   main:
     columns:
@@ -23,6 +28,7 @@ tabs:
               date:
                 label: Published Date
                 type: date
+                default: today
           files:
             type: files
             label: Assets
