@@ -3,7 +3,6 @@ title: Blog Post
 create:
   title: "{{ page.content.uuid }}"
   slug: "{{ page.content.uuid }}"
-  status: listed
 
 tabs:
   main:
