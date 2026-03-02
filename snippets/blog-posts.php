@@ -27,15 +27,18 @@ if($style === 'index') {
     <?php endforeach; ?>
 
 <?php 
-} else { 
-    // CONTINUOUS LISTING STYLE (DEFAULT)
-    
-    foreach (page('blog')->children()->listed()->sortBy('date', 'desc') as $article): ?>
-    
+} else {
+    // CONTINUOUS LISTING STYLE
+
+    $articles   = page('blog')->children()->listed()->sortBy('date', 'desc')->paginate(10);
+    $pagination = $articles->pagination();
+
+    foreach ($articles as $article): ?>
+
     <article class="post">
-    
+
       <main class="flow">
-          
+
         <div class="meta-info">
             <time datetime="<?= $article->published('c') ?>">
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -44,20 +47,28 @@ if($style === 'index') {
                 <?= $article->published('d.m.Y') ?>
             </time>
         </div>
-        
-          
+
           <?php if (!preg_match('/^\d{4}-\d{2}-\d{2}(-\d+)?$/', $article->title()->value())): ?>
           <h2><a href="<?= $article->url() ?>"><?= $article->title()->esc() ?></a></h2>
           <?php endif ?>
 
           <?= $article->text_content()->kt() ?>
-          
+
       </main>
-    
-      
-    
+
     </article>
-    
+
     <?php endforeach; ?>
+
+    <?php if ($pagination->hasPages()): ?>
+    <nav class="pagination">
+        <?php if ($pagination->hasPrevPage()): ?>
+        <a href="<?= $pagination->prevPageUrl() ?>">← Newer</a>
+        <?php endif ?>
+        <?php if ($pagination->hasNextPage()): ?>
+        <a href="<?= $pagination->nextPageUrl() ?>">Older →</a>
+        <?php endif ?>
+    </nav>
+    <?php endif ?>
 
 <?php } ?>

@@ -333,3 +333,11 @@ blockquote {
 .highlightedProject h3 {
   padding: 0;
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 6rem;
+}
+
