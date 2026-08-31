@@ -4,6 +4,8 @@
 
 A minimal portfolio and blog theme for Kirby CMS. Built for Kirby 5 + PHP 8.2+.
 
+**Demo:** [index-theme.sans.supply](https://index-theme.sans.supply/) · **Changelog:** [CHANGELOG.md](CHANGELOG.md)
+
 Index is built for easy updates, not elaborate structure. No menu, no case studies, no complex navigation – because in my experience, that's where people get stuck and stop updating their portfolios.
 
 List your work. Write when you want. That's it. The templates are simple to extend if you need more later.
@@ -19,8 +21,8 @@ Automatic XML sitemap generation for search engines. Better indexing out of the 
 ### Minimal CSS
 Tiny CSS footprint. Fast loading, easy to understand, simple to modify. No preprocessors, no frameworks, no complexity.
 
-### Adjustable colors (two-color palette)
-Pick your primary and accent color. That's it. The constraint keeps your site cohesive and makes customization trivial. Change two variables, done.
+### Two colours, that's it
+One background colour, one text colour (`--primary-color` and `--secondary-color`). Everything else — muted labels, dividers, hover states — is derived from those two with opacity, so the site stays cohesive whatever pair you pick. The stylesheet lists a few [Flexoki](https://stephango.com/flexoki) pairs to start from.
 
 ### Geist font family
 Ships with [Geist](https://vercel.com/font) by Vercel — Geist Mono as the main display font, Geist Sans for body text. Both are licensed under the [SIL Open Font License](assets/fonts/OFL.txt) and load fast. Swap them out by overriding the `--font-primary` (headings, index pages), `--font-secondary` (body copy) and `--font-mono` (code) CSS variables.
@@ -31,8 +33,11 @@ Choose between an index-style listing grouped by year, or a continuous feed that
 ### Breadcrumbs and basic SEO fields
 Essential SEO handled for you. Page titles, meta descriptions, breadcrumbs for navigation context. The basics done right.
 
-### No build tools
-No npm, no build process, no compilation step. Edit templates, refresh browser. That's it. Perfect for quick tweaks and easy deployment.
+### No build tools, no JavaScript
+No npm, no build process, no compilation step — and the theme ships zero JavaScript. One stylesheet, a handful of templates. Edit, refresh, done.
+
+### Reply by email
+Set a `mailto:` (or any URL) in the Panel and every post gets a "Reply by email" link, also included in the RSS feed.
 
 ### Extensible via snippet overrides
 Drop a `header-extra.php` snippet into `site/snippets/` to inject project-specific `<head>` content — OG images, analytics, custom meta tags — without touching the theme.
@@ -78,6 +83,10 @@ git submodule add https://github.com/eddiedale/index-theme.git site/plugins/inde
 Navigate to `/panel` in your browser, create your admin account, and start
 editing your content from the Panel.
 
+> Kirby only shows the installer on `localhost` by default. If you're setting up directly on a server, temporarily add `'panel' => ['install' => true]` to `site/config/config.php`, create your account, then remove it again.
+
+The blog listing style and the reply-by-email link live under **Site → Theme** in the Panel.
+
 ## Configuration
 
 The theme registers a few options you can set in `site/config/config.php`:
@@ -99,6 +108,19 @@ Kirby always checks `site/templates/`, `site/snippets/`, and `site/blueprints/` 
 For example, to customise the header, create `site/snippets/header.php` and Kirby will use that instead of the theme's version.
 
 To inject content into `<head>` — analytics, OG image tags, custom meta — without touching the header template, create `site/snippets/header-extra.php`. The theme will automatically include it.
+
+That's also the place to change colours and fonts without editing the theme:
+
+```php
+<!-- site/snippets/header-extra.php -->
+<style>
+  :root {
+    --primary-color: #F2F0E5;   /* background */
+    --secondary-color: #1C1B1A; /* text */
+    --font-primary: ui-serif, Georgia, serif;
+  }
+</style>
+```
 
 ## What's Kirby?
 
