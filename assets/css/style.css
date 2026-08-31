@@ -240,6 +240,17 @@ h1, h2, h3, h4, h5, h6, strong, b {
   margin-block-start: var(--flow-space, 1em);
 }
 
+/* Images need more breathing room than text. */
+.flow > figure {
+  margin-block: 2.5rem;
+}
+.flow > figure + * {
+  margin-block-start: 0; /* the figure's bottom margin is the gap */
+}
+.flow > figure + :is(h2, h3, h4, h5, h6) {
+  padding-top: 1.5rem; /* 2.5rem + 1.5rem = the usual 4rem above headings */
+}
+
 
 
 /* The attribute selectors match prism.css's specificity so this wins. */
