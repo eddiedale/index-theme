@@ -1,9 +1,5 @@
 title: Blog Post
 
-create:
-  title: "{{ page.content.uuid }}"
-  slug: "{{ page.content.uuid }}"
-
 tabs:
   main:
     columns:
