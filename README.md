@@ -1,6 +1,6 @@
 # Index – A minimal portfolio and blog theme for Kirby CMS
 
-![Screenshot of the Index Theme for Kirby CMS](kirby-index-theme-screenshot.jpg)
+![Screenshot of the Index Theme for Kirby CMS](kirby-index-theme-screenshot-v1.2.jpg)
 
 A minimal portfolio and blog theme for Kirby CMS. Built for Kirby 5 + PHP 8.2+.
 
