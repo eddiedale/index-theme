@@ -64,7 +64,7 @@
   --font-weight: 400;
   --flow-space: 1rem; 
 
-  --font-size: clamp(16px, 2vw, 21px);
+  --font-size: clamp(16px, 2vw, 20px);
   --max-site-width: 768px;
 }
 
@@ -159,9 +159,9 @@ figcaption {
 
 
 
-h1 { font-size: 250%; line-height: 1.15 }
-h2 { font-size: 200%; line-height: 1.15 }
-h3 { font-size: 150%; }
+h1 { font-size: 200%; line-height: 1.15 }
+h2 { font-size: 150%; line-height: 1.15 }
+h3 { font-size: 125%; }
 h4, h5, h6 { font-size: 100%; }
 
 h2, h3, h4, h5, h6 { 
