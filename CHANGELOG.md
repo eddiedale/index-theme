@@ -4,7 +4,8 @@
 
 ### Changed
 - Font variables renamed to `--font-primary` (headings, home, blog index, breadcrumbs, meta), `--font-secondary` (body copy) and a separate `--font-mono` for code. Body copy on all pages — not just blog posts — now uses the secondary font.
-- Geist Pixel replaced with Geist Mono (Regular + SemiBold) as the main display font. Geist Sans remains the body font for posts.
+- Headings, `strong` and `b` are explicitly 700; both font families ship Regular (400) and Bold (700).
+- Geist Pixel replaced with Geist Mono (Regular + Bold) as the main display font. Geist Sans remains the body font for posts.
 
 ### Removed
 - Shortform-post handling introduced in 1.1.2: the `page.create:after` hook that set a date-based title/slug, the uuid placeholders in the blog post `create` block, and the logic that hid date-like titles in the continuous listing and RSS feed. New posts are created with a normal title again.

@@ -11,8 +11,8 @@
 
 @font-face {
   font-family: 'Geist Sans';
-  src: url('../fonts/Geist-SemiBold.woff2') format('woff2');
-  font-weight: 600;
+  src: url('../fonts/Geist-Bold.woff2') format('woff2');
+  font-weight: 700;
   font-display: swap;
   font-style: normal;
 }
@@ -27,8 +27,8 @@
 
 @font-face {
   font-family: 'Geist Mono';
-  src: url('../fonts/GeistMono-SemiBold.woff2') format('woff2');
-  font-weight: 600;
+  src: url('../fonts/GeistMono-Bold.woff2') format('woff2');
+  font-weight: 700;
   font-display: swap;
   font-style: normal;
 }
@@ -174,9 +174,9 @@ h1, h2, h3, h4, h5, h6,
   font-family: var(--font-primary);
 }
 
-/* Only two weights ship (400 + 600); everything bold uses the semibold face. */
+/* Only two weights ship (400 + 700). */
 h1, h2, h3, h4, h5, h6, strong, b {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .post h1, .defaultPage h1 {
