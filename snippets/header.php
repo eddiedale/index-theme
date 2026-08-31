@@ -32,8 +32,8 @@
   <meta content="summary" name="twitter:card">
 
   <?= css([
-    '/media/plugins/eddiedale/index-theme/css/style.css?v=1.02',
-    '/media/plugins/eddiedale/index-theme/css/prism.css'
+    '/media/plugins/eddiedale/index-theme/css/prism.css',
+    '/media/plugins/eddiedale/index-theme/css/style.css?v=1.03'
   ]) ?>
 
 

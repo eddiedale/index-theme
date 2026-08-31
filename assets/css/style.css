@@ -161,6 +161,11 @@ h2, h3, h4, h5, h6 {
   padding-top: 4rem;
 }
 
+/* Only two weights ship (400 + 600); everything bold uses the semibold face. */
+h1, h2, h3, h4, h5, h6, strong, b {
+  font-weight: 600;
+}
+
 .post h1, .defaultPage h1 {
   margin-bottom: 2rem;
 }
@@ -228,6 +233,11 @@ h2, h3, h4, h5, h6 {
 
 
 
+/* Code uses the display font too; the attribute selectors match prism.css's specificity. */
+pre, code,
+pre[class*="language-"], code[class*="language-"] {
+  font-family: var(--font-family);
+}
 
 pre { 
   background: var(--secondary-color) !important;  
