@@ -1,5 +1,6 @@
 /* https://piccalil.li/blog/a-modern-css-reset */
 *,::after,::before{box-sizing:border-box}blockquote,body,dd,dl,figure,h1,h2,h3,h4,p{margin:0}ol[role=list],ul[role=list]{list-style:none}html:focus-within{scroll-behavior:smooth}body{min-height:100vh;text-rendering:optimizeSpeed;line-height:1.5}a:not([class]){text-decoration-skip-ink:auto}img,picture{max-width:100%;display:block}button,input,select,textarea{font:inherit}@media (prefers-reduced-motion:reduce){html:focus-within{scroll-behavior:auto}*,::after,::before{animation-duration:0s!important;animation-iteration-count:1!important;transition-duration:0s!important;scroll-behavior:auto!important}}
+
 @font-face {
   font-family: 'Geist Sans';
   src: url('../fonts/Geist-Regular.woff2') format('woff2');
@@ -17,14 +18,20 @@
 }
 
 @font-face {
-  font-family: 'Geist Pixel';
-  src: url('../fonts/GeistPixel-Square.woff2') format('woff2');
+  font-family: 'Geist Mono';
+  src: url('../fonts/GeistMono-Regular.woff2') format('woff2');
   font-weight: 400;
   font-display: swap;
   font-style: normal;
 }
 
-
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('../fonts/GeistMono-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
 
 :root {
   /* 
@@ -42,7 +49,7 @@
   --secondary-color: #F2F0E5;
 
   /* Font Family. Default is monospace. */
-  --font-family: 'Geist Pixel', ui-monospace, 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace';
+  --font-family: 'Geist Mono', ui-monospace, 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace';
   --font-family-sans: 'Geist Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   
   /*--font-family: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;*/

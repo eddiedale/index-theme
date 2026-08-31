@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+### Changed
+- Geist Pixel replaced with Geist Mono (Regular + SemiBold) as the main display font. Geist Sans remains the body font for posts.
+
 ### Removed
 - Shortform-post handling introduced in 1.1.2: the `page.create:after` hook that set a date-based title/slug, the uuid placeholders in the blog post `create` block, and the logic that hid date-like titles in the continuous listing and RSS feed. New posts are created with a normal title again.
 
