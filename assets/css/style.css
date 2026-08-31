@@ -18,6 +18,22 @@
 }
 
 @font-face {
+  font-family: 'Geist Sans';
+  src: url('../fonts/Geist-Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Geist Sans';
+  src: url('../fonts/Geist-BoldItalic.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+  font-style: italic;
+}
+
+@font-face {
   font-family: 'Geist Mono';
   src: url('../fonts/GeistMono-Regular.woff2') format('woff2');
   font-weight: 400;
@@ -99,18 +115,17 @@ a {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
+  text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+  transition: text-decoration-color .15s ease, text-decoration-thickness .15s ease;
 }
 
 a:hover {
-  text-decoration: none;
+  text-decoration-thickness: 2px;
+  text-decoration-color: currentColor;
 }
 
 p {
-  line-height: 1.5;
-}
-
-li + li {
-  padding-top: .5rem;
+  line-height: 1.4;
 }
 
 .blog:not(.continuous) ul, .home ul {
@@ -118,9 +133,9 @@ li + li {
   padding-left: 0
 }
 
-li > ul, li > ol  {
-  padding-top: .5rem;
-  padding-left: 20px;
+.flow ul, .flow ol,
+li > ul, li > ol {
+  padding-left: 1.25em;
 }
 
 ul > li + li, 
@@ -134,8 +149,19 @@ img {
   width: 100%;
 }
 
-hr:before {
-  margin-top: 5rem;
+/* Horizontal rules use the same · · · motif as the continuous post separator. */
+hr {
+  border: 0;
+  color: inherit;
+  text-align: center;
+  line-height: 1;
+}
+hr::before {
+  content: '· · ·';
+  letter-spacing: .5em;
+}
+.flow > hr {
+  margin-block: 3rem; /* the next element's 1em flow margin collapses into this */
 }
 
 figcaption {
@@ -152,14 +178,69 @@ figcaption {
   padding: 0;
 }
 
-.home h1, .home a h3 { 
-  font-weight: inherit; 
-  margin-top: .33rem;
+/* Hierarchy by opacity only — one size, one weight, one tracking. */
+.home h1 {
+  font-weight: 400;
+}
+
+.home h2,
+.home .flex-justify p {
+  font-weight: 400;
+  opacity: .5;
+}
+
+.home a h3 {
+  font-weight: inherit;
+  margin-top: .75rem;
+}
+
+/* Prose is sans; labels and lists stay in the primary font. */
+.home > p, .home .flow {
+  font-family: var(--font-secondary);
+}
+
+/* Name left, tagline right; wraps onto two lines when narrow. */
+.masthead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: .25rem 1rem;
+}
+.masthead p {
+  opacity: .5;
+}
+
+.home .flex-justify {
+  padding-block: .6rem;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 15%, transparent);
+}
+
+/* Project list: underline only on hover. */
+.home .flex-justify a {
+  text-decoration-color: transparent;
+}
+.home .flex-justify a:hover {
+  text-decoration-color: currentColor;
+}
+
+/* Blog index: years are muted labels, titles are sans. */
+.blog:not(.continuous) h2 {
+  font-size: inherit;
+  font-weight: 400;
+  opacity: .5;
+  padding-top: 2.5rem;
+}
+.blog:not(.continuous) li + li {
+  padding-top: .5rem;
+}
+.blog:not(.continuous) li a {
+  font-family: var(--font-secondary);
 }
 
 
 
-h1 { font-size: 180%; line-height: 1.15; font-weight: 700 }
+h1 { font-size: 200%; line-height: 1.15; font-weight: 700; text-wrap: balance; }
 h2 { font-size: 140%; line-height: 1.15 }
 h3 { font-size: 120%; }
 h4, h5, h6 { font-size: 100%; }
@@ -170,7 +251,7 @@ h2, h3, h4, h5, h6 {
 
 h1, h2, h3, h4, h5, h6,
 .home, .blog:not(.continuous),
-.breadcrumbs, .meta-info, .rss, .pagination {
+.breadcrumbs, .post-date, .meta-info, .rss, .pagination {
   font-family: var(--font-primary);
 }
 
@@ -181,6 +262,27 @@ h1, h2, h3, h4, h5, h6, strong, b {
 
 .post h1, .defaultPage h1 {
   margin-bottom: 2rem;
+}
+
+/* Breadcrumbs left, date right, on one line; a long title truncates. */
+.topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 2rem; /* same gap as h1 → content */
+}
+.topline .breadcrumbs {
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0;
+}
+.post-date {
+  flex-shrink: 0;
+  font-size: 75%;
+  opacity: .5;
 }
 
 .post img, .defaultPage img {
@@ -240,6 +342,14 @@ h1, h2, h3, h4, h5, h6, strong, b {
   margin-block-start: var(--flow-space, 1em);
 }
 
+/* Subheadings hug the text that follows them. */
+.flow > :is(h2, h3, h4, h5, h6) + * {
+  margin-block-start: .5em;
+}
+.flow > :is(h2, h3, h4, h5) + :is(h3, h4, h5, h6) {
+  padding-top: 0; /* a heading directly under a heading */
+}
+
 /* Images need more breathing room than text. */
 .flow > figure {
   margin-block: 2.5rem;
@@ -253,64 +363,84 @@ h1, h2, h3, h4, h5, h6, strong, b {
 
 
 
-/* The attribute selectors match prism.css's specificity so this wins. */
-pre, code,
-pre[class*="language-"], code[class*="language-"] {
+pre, code {
   font-family: var(--font-mono);
 }
 
-pre { 
-  background: var(--secondary-color) !important;  
+/* Code blocks: plain, no syntax highlighting. */
+pre {
+  background: var(--secondary-color);
   color: var(--primary-color);
-  padding: 0.25rem 0.5rem;
-}
-
-code {
-  padding: 0.25rem 0.5rem;
-  margin-inline: 0;
-  font-size: 75%;
-  background: var(--secondary-color) !important;
-  color: var(--primary-color);
-  display: inline-block;
-  margin: 0
+  margin: 0;               /* .flow handles vertical rhythm */
+  padding: 1rem;
+  font-size: 85%;
+  line-height: 1.5;
+  text-align: left;
+  overflow-x: auto;
+  tab-size: 4;
+  white-space: pre;
+  word-break: normal;
+  hyphens: none;
 }
 
 pre code {
-  font-size: 75% !important;
-  overflow-x:scroll;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
+  display: block;
+  padding: 0;
+  font-size: inherit;
+  background: transparent;
+  color: inherit;
+}
 
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
+/* Inverted blocks need an inverted selection colour, or selecting is invisible. */
+pre ::selection, pre::selection {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+}
 
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
-  hyphens: none;
-
-  width:100%;
-
-  line-height: 1.5 !important;
+/* Inline code stays inline so it can wrap with the sentence. */
+code {
+  padding: .1em .4em;
+  font-size: 85%;
+  background: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 
 
 body a:focus-visible {
-    outline: 2px dotted rebeccapurple;
+    outline: 2px dotted currentColor;
     outline-offset: 4px;
 }
 
 
 
+/* Blockquote: typographic, not boxed. Set in the primary font so it reads as a
+   different voice, with a hanging quotation mark and a muted attribution line. */
 blockquote {
-  background: var(--secondary-color);
-  color: var(--primary-color);
-  padding: 1.5rem;
+  position: relative;
+  padding-left: 2.5rem;
+  font-family: var(--font-primary);
+}
+blockquote::before {
+  content: '\201C';
+  position: absolute;
+  left: 0;
+  top: -.15em;
+  font-size: 250%;
+  line-height: 1;
+  opacity: .5;
+}
+blockquote > * + * {
+  margin-block-start: .75em;
+}
+blockquote > p + p:last-child {
+  opacity: .5; /* attribution — the last of several paragraphs */
+}
+.flow > blockquote {
+  margin-block: 2.5rem;
+}
+.flow > blockquote + * {
+  margin-block-start: 0; /* the blockquote's bottom margin is the gap */
 }
 
 
@@ -360,11 +490,18 @@ blockquote {
 .highlightedProjects {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
-.highlightedProjects h2 {
-  grid-column: 1 / -1;
+@media (max-width: 480px) {
+  .highlightedProjects {
+    grid-template-columns: 1fr;
+  }
+}
+
+.highlightedProject img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
 }
 
 .highlightedProject h3 {

@@ -1,13 +1,25 @@
 # Changelog
 
-## Unreleased
+## 1.2.0 — August 31, 2026
+
+A design pass. Same structure, quieter and more coherent: one size, one weight, hierarchy by opacity.
 
 ### Changed
-- Font variables renamed to `--font-primary` (headings, home, blog index, breadcrumbs, meta), `--font-secondary` (body copy) and a separate `--font-mono` for code. Body copy on all pages — not just blog posts — now uses the secondary font.
-- Headings, `strong` and `b` are explicitly 700; both font families ship Regular (400) and Bold (700).
-- Geist Pixel replaced with Geist Mono (Regular + Bold) as the main display font. Geist Sans remains the body font for posts.
+- Geist Pixel replaced with Geist Mono as the primary font. Geist Sans stays for body copy and now also ships real italics (Regular Italic + Bold Italic). Both families ship 400 and 700.
+- Font variables renamed: `--font-primary` (headings, home page, blog index, breadcrumbs, meta), `--font-secondary` (body copy on all pages, not just posts) and a separate `--font-mono` for code so a serif primary never leaks into code blocks.
+- Headings, `strong` and `b` are explicitly 700; `h1` uses `text-wrap: balance`. Type scale tightened (14–18px body, h1/h2/h3 at 200/140/120%).
+- Links: the underline rests at 40% opacity and thickens to 2px on hover instead of disappearing. Focus ring uses the current colour.
+- Home page: name and tagline share one line (`.masthead`); section headings ("Selected Projects", "Other projects") removed; tagline and project categories muted; project rows separated by hairlines with an underline only on hover; thumbnails cropped to 4:3 and wrapped in a single link with their title; grid stacks on narrow screens.
+- Blog index: years are muted labels at body size; post titles set in the secondary font.
+- Blog post: the date moved from the footer to the right of the breadcrumb line (long titles truncate); equal 2rem spacing above and below the `h1`.
+- Content rhythm: elements directly after a subheading sit `.5em` below it; stacked headings hug; figures get 2.5rem breathing room; `hr` renders as the theme's `· · ·` separator.
+- Blockquote is no longer a boxed block: primary font, hanging quotation mark, muted attribution line.
+- Code blocks are plain inverted mono with no syntax highlighting; inline code wraps with the sentence. Selection colours are inverted inside code blocks so selecting text stays visible.
+- Lists indent `1.25em` instead of the browser default.
+- `style.css` now loads as the only stylesheet; the `?v=` cache-buster is bumped with every CSS change.
 
 ### Removed
+- Prism.js and its stylesheet, including the code copy button. The theme now ships zero JavaScript.
 - Shortform-post handling introduced in 1.1.2: the `page.create:after` hook that set a date-based title/slug, the uuid placeholders in the blog post `create` block, and the logic that hid date-like titles in the continuous listing and RSS feed. New posts are created with a normal title again.
 
 ---

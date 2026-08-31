@@ -2,11 +2,12 @@
 
 <article class="home">
 
-  <h1 class="siteTitle"><?= site()->title() ?></h1>
-
-  <?php if (site()->siteDescription()->isNotEmpty()): ?>
-  <p><?= site()->siteDescription() ?></p>
-  <?php endif ?>
+  <header class="masthead">
+    <h1 class="siteTitle"><?= site()->title() ?></h1>
+    <?php if (site()->siteDescription()->isNotEmpty()): ?>
+    <p><?= site()->siteDescription() ?></p>
+    <?php endif ?>
+  </header>
 
   <?php if(page()->introText()->isNotEmpty()) : ?>
     <div class="flow">
@@ -17,14 +18,10 @@
 
   <?php if(page()->highlightedProjects()->isNotEmpty()) : ?>
   <div class="highlightedProjects">
-    <h2>Selected Projects</h2>
-
     <?php foreach (page()->highlightedProjects()->toBlocks() as $block): ?>
       <div class="highlightedProject">
         <a href="<?= $block->link()->toUrl() ?>">
           <img src="<?= $block->image()->toFile()->url() ?>" alt="<?= $block->image()->toFile()->alt() ?>">
-        </a>
-        <a href="<?= $block->link()->toUrl() ?>">
           <h3><?= $block->title() ?></h3>
         </a>
       </div>
@@ -34,8 +31,6 @@
 
 
   <div>
-    <h2>Other projects</h2>
-
     <ul>
     <?php foreach ($page->projects()->toStructure() as $project) : ?>
       <li class="flex-justify">

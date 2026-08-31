@@ -31,10 +31,7 @@
   <meta content="website" property="og:type">
   <meta content="summary" name="twitter:card">
 
-  <?= css([
-    '/media/plugins/eddiedale/index-theme/css/prism.css',
-    '/media/plugins/eddiedale/index-theme/css/style.css?v=1.06'
-  ]) ?>
+  <?= css('/media/plugins/eddiedale/index-theme/css/style.css?v=1.25') ?>
 
 
 </head>
