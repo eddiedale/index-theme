@@ -1,6 +1,31 @@
 # Changelog
 
-## 1.1.0 — Upcoming
+## Unreleased
+
+### Removed
+- Shortform-post handling introduced in 1.1.2: the `page.create:after` hook that set a date-based title/slug, the uuid placeholders in the blog post `create` block, and the logic that hid date-like titles in the continuous listing and RSS feed. New posts are created with a normal title again.
+
+---
+
+## 1.1.2 — March 25, 2026
+
+### Added
+- Pagination (10 posts per page) for the continuous blog listing.
+- Shortform posts: date-slugged, title-less posts created straight from the Panel. (Removed again in the next release.)
+- New blog posts are created as drafts.
+
+### Fixed
+- Removed an analytics script that had been committed to the header snippet by mistake.
+
+---
+
+## 1.1.1 — February 28, 2026
+
+- Updated starter content and README.
+
+---
+
+## 1.1.0 — February 27, 2026
 
 ### Changed
 - Restructured entire theme as a self-contained Kirby plugin. Templates, snippets, blueprints, assets, collections, models, and routes are all registered via `Kirby::plugin()`. Top-level `site/` directories are now empty by default, with Kirby's native override system allowing per-project customisation.
