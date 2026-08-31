@@ -3,6 +3,7 @@
 ## Unreleased
 
 ### Changed
+- Font variables renamed to `--font-primary` (headings, home, blog index, breadcrumbs, meta), `--font-secondary` (body copy) and a separate `--font-mono` for code. Body copy on all pages — not just blog posts — now uses the secondary font.
 - Geist Pixel replaced with Geist Mono (Regular + SemiBold) as the main display font. Geist Sans remains the body font for posts.
 
 ### Removed

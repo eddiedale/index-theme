@@ -48,11 +48,18 @@
   --primary-color: #1C1B1A;
   --secondary-color: #F2F0E5;
 
-  /* Font Family. Default is monospace. */
-  --font-family: 'Geist Mono', ui-monospace, 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace';
-  --font-family-sans: 'Geist Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  
-  /*--font-family: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;*/
+  /*
+    Fonts
+    --font-primary:   headings, site title, home page, blog index, breadcrumbs, post meta, pagination.
+    --font-secondary: body copy — paragraphs, lists, blockquotes on posts and pages.
+    --font-mono:      code blocks and inline code only. Kept separate so changing
+                      the primary font (e.g. to a serif) never touches code.
+  */
+  --font-primary: 'Geist Mono', ui-monospace, 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+  --font-secondary: 'Geist Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-mono: 'Geist Mono', ui-monospace, 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+
+  /* e.g. --font-primary: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif; */
   
   --font-weight: 400;
   --flow-space: 1rem; 
@@ -76,7 +83,7 @@
 }
 
 body {
-  font-family: var(--font-family);
+  font-family: var(--font-secondary);
   font-weight: var(--font-weight);
   font-size: var(--font-size);
   max-width: var(--max-site-width);
@@ -161,6 +168,12 @@ h2, h3, h4, h5, h6 {
   padding-top: 4rem;
 }
 
+h1, h2, h3, h4, h5, h6,
+.home, .blog:not(.continuous),
+.breadcrumbs, .meta-info, .rss, .pagination {
+  font-family: var(--font-primary);
+}
+
 /* Only two weights ship (400 + 600); everything bold uses the semibold face. */
 h1, h2, h3, h4, h5, h6, strong, b {
   font-weight: 600;
@@ -172,10 +185,6 @@ h1, h2, h3, h4, h5, h6, strong, b {
 
 .post img, .defaultPage img {
   margin-bottom: .5rem;
-}
-
-.post p, .post ul, .post ol {
-    font-family: var(--font-family-sans);
 }
 
 .continuous .post + .post {
@@ -233,10 +242,10 @@ h1, h2, h3, h4, h5, h6, strong, b {
 
 
 
-/* Code uses the display font too; the attribute selectors match prism.css's specificity. */
+/* The attribute selectors match prism.css's specificity so this wins. */
 pre, code,
 pre[class*="language-"], code[class*="language-"] {
-  font-family: var(--font-family);
+  font-family: var(--font-mono);
 }
 
 pre { 

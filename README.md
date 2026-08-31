@@ -23,7 +23,7 @@ Tiny CSS footprint. Fast loading, easy to understand, simple to modify. No prepr
 Pick your primary and accent color. That's it. The constraint keeps your site cohesive and makes customization trivial. Change two variables, done.
 
 ### Geist font family
-Ships with [Geist](https://vercel.com/font) by Vercel — Geist Mono as the main display font, Geist Sans for body text. Both are licensed under the [SIL Open Font License](assets/fonts/OFL.txt) and load fast. Swap them out by overriding the CSS variables.
+Ships with [Geist](https://vercel.com/font) by Vercel — Geist Mono as the main display font, Geist Sans for body text. Both are licensed under the [SIL Open Font License](assets/fonts/OFL.txt) and load fast. Swap them out by overriding the `--font-primary` (headings, index pages), `--font-secondary` (body copy) and `--font-mono` (code) CSS variables.
 
 ### Two blog listing styles
 Choose between an index-style listing grouped by year, or a continuous feed that shows full posts in chronological order. Toggle between them from the Panel.
