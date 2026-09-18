@@ -2,7 +2,8 @@ name: Build kit zip
 
 # Assembles index-kit.zip — a complete ready-to-run site (Kirby core, this
 # theme, starter content) — and attaches it to the release. Zip users need
-# no Composer and no terminal. Runs on each published release.
+# no Composer and no terminal. Runs on each published release; can also be
+# dispatched manually (uploads to the latest release).
 on:
   release:
     types: [published]
@@ -21,25 +22,26 @@ jobs:
         with:
           php-version: '8.3'
 
-      - name: Fetch Kirby core
+      - name: Fetch Kirby core (release archive — bundles vendor/)
         run: |
-          mkdir /tmp/core && cd /tmp/core
-          composer init --no-interaction --name tmp/core
-          composer config allow-plugins.getkirby/composer-installer true
-          composer require getkirby/cms:^5.2 --no-progress
-          test -f kirby/bootstrap.php
+          TAG=$(curl -s https://api.github.com/repos/getkirby/kirby/releases/latest | jq -r .tag_name)
+          echo "Kirby $TAG"
+          curl -sL -o /tmp/kirby.zip "https://github.com/getkirby/kirby/archive/refs/tags/$TAG.zip"
+          unzip -q /tmp/kirby.zip -d /tmp
+          mv "/tmp/kirby-$TAG" /tmp/kirby
+          test -f /tmp/kirby/bootstrap.php && test -f /tmp/kirby/vendor/autoload.php
 
       - name: Assemble kit
         run: |
           mkdir -p build/index-kit
           rsync -a kit/ build/index-kit/                    # skeleton (incl. dotfiles)
           rsync -a content build/index-kit/                 # starter content
-          rsync -a /tmp/core/kirby build/index-kit/         # kirby core
+          rsync -a /tmp/kirby build/index-kit/              # kirby core (self-contained)
           mkdir -p build/index-kit/site/plugins
           rsync -a --exclude='.git*' --exclude='kit' --exclude='content' \
                 --exclude='build' ./ build/index-kit/site/plugins/index-theme/
           cd build && zip -qr index-kit.zip index-kit
-          unzip -l index-kit.zip | head -15
+          unzip -l index-kit.zip | head -12
 
       - name: Smoke test the build
         run: |
@@ -51,7 +53,12 @@ jobs:
           echo "panel -> $code"; echo "$code" | grep -qE "200|302"
 
       - name: Attach zip to release
-        if: github.event_name == 'release'
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release upload "${{ github.event.release.tag_name }}" build/index-kit.zip --clobber
+        run: |
+          TAG="${{ github.event.release.tag_name }}"
+          if [ -z "$TAG" ]; then
+            TAG=$(gh release list --limit 1 --json tagName -q '.[0].tagName')
+          fi
+          echo "uploading to release $TAG"
+          gh release upload "$TAG" build/index-kit.zip --clobber
