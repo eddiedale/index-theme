@@ -1,0 +1,57 @@
+name: Build kit zip
+
+# Assembles index-kit.zip — a complete ready-to-run site (Kirby core, this
+# theme, starter content) — and attaches it to the release. Zip users need
+# no Composer and no terminal. Runs on each published release.
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+
+      - name: Fetch Kirby core
+        run: |
+          mkdir /tmp/core && cd /tmp/core
+          composer init --no-interaction --name tmp/core
+          composer config allow-plugins.getkirby/composer-installer true
+          composer require getkirby/cms:^5.2 --no-progress
+          test -f kirby/bootstrap.php
+
+      - name: Assemble kit
+        run: |
+          mkdir -p build/index-kit
+          rsync -a kit/ build/index-kit/                    # skeleton (incl. dotfiles)
+          rsync -a content build/index-kit/                 # starter content
+          rsync -a /tmp/core/kirby build/index-kit/         # kirby core
+          mkdir -p build/index-kit/site/plugins
+          rsync -a --exclude='.git*' --exclude='kit' --exclude='content' \
+                --exclude='build' ./ build/index-kit/site/plugins/index-theme/
+          cd build && zip -qr index-kit.zip index-kit
+          unzip -l index-kit.zip | head -15
+
+      - name: Smoke test the build
+        run: |
+          cd build/index-kit
+          php -S localhost:8000 kirby/router.php &
+          sleep 2
+          curl -sf http://localhost:8000/ | grep -qi "<html" && echo "front page OK"
+          code=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8000/panel)
+          echo "panel -> $code"; echo "$code" | grep -qE "200|302"
+
+      - name: Attach zip to release
+        if: github.event_name == 'release'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "${{ github.event.release.tag_name }}" build/index-kit.zip --clobber

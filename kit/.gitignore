@@ -1,0 +1,18 @@
+# composer-managed (restored by `composer install`; the release zip bundles them)
+/kirby
+/vendor
+/site/plugins/index-theme
+
+# runtime
+/media/*
+!/media/index.html
+/site/cache/*
+!/site/cache/index.html
+/site/sessions/*
+!/site/sessions/index.html
+/site/accounts/*
+!/site/accounts/index.html
+/site/config/.license
+
+# system
+.DS_Store

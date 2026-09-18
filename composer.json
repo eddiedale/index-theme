@@ -1,6 +1,7 @@
 {
     "name": "eddiedale/index-theme",
     "description": "A minimal portfolio and blog theme for Kirby CMS",
+    "version": "1.3.0",
     "type": "kirby-plugin",
     "license": "MIT",
     "authors": [

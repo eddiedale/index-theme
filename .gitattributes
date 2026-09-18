@@ -1,0 +1,7 @@
+# Keep plugin installs lean: these ship in the git repo (and feed the kit
+# build) but are excluded from composer dists and release archives.
+/kit export-ignore
+/content export-ignore
+/.github export-ignore
+/.gitattributes export-ignore
+/kirby-index-theme-screenshot-v1.2.jpg export-ignore

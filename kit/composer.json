@@ -1,0 +1,34 @@
+{
+    "name": "eddiedale/index-kit",
+    "description": "Index theme for Kirby CMS — ready-to-run kit. Unzip or create-project, open the panel, start writing.",
+    "type": "project",
+    "keywords": ["kirby", "cms", "theme", "kit", "index-theme"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Eddie Dale",
+            "homepage": "https://eddiedale.com"
+        }
+    ],
+    "support": {
+        "source": "https://github.com/eddiedale/index-kit",
+        "docs": "https://github.com/eddiedale/index-theme"
+    },
+    "require": {
+        "php": "~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0",
+        "getkirby/cms": "^5.2",
+        "eddiedale/index-theme": "^1.2"
+    },
+    "config": {
+        "allow-plugins": {
+            "getkirby/composer-installer": true
+        },
+        "optimize-autoloader": true
+    },
+    "scripts": {
+        "start": [
+            "Composer\\Config::disableProcessTimeout",
+            "@php -S localhost:8000 kirby/router.php"
+        ]
+    }
+}

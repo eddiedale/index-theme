@@ -39,111 +39,44 @@ Drop a `header-extra.php` snippet into `site/snippets/` to inject project-specif
 
 ## Installation
 
-### Requirements
+There are two ways in — pick the one that fits you:
 
-- PHP 8.2 or higher (8.3+ recommended)
-- A web server
-- Kirby 5 (free for local development; license required for production — see [License](#license))
-- Composer (Track A only — [getcomposer.org](https://getcomposer.org) if you don't have it)
+### New to Kirby? Use the kit (easiest)
 
-### Starting point: Plainkit
+Grab **`index-kit.zip`** from the [releases page](https://github.com/eddiedale/index-theme/releases).
+It's a complete, ready-to-run site: Kirby, the theme, and starter content — already wired together.
 
-Both installation tracks start from [Plainkit](https://getkirby.com/try) — Kirby's minimal starter kit. **Do not use Starterkit.** It ships with templates, blueprints, and sample content that conflict with the theme and are tedious to untangle.
+1. Download and unzip it — into your web server's folder, or anywhere for local testing.
+2. **No web server?** Open a terminal in the folder and run
+   `php -S localhost:8000 kirby/router.php`, then visit `http://localhost:8000`.
+3. Open `/panel` in the browser and create your account. Done — start writing.
 
-Pick one track and follow it end to end — mixing them causes conflicts.
+Requirements: PHP 8.2+ (8.3+ recommended). Kirby is free to try locally;
+production needs a [Kirby license](https://getkirby.com/buy).
 
----
+Prefer Composer? `composer create-project` isn't offered — but the next option is just as quick.
 
-#### Track A: Composer
-
-1. Create a new project from Plainkit:
-
-```bash
-composer create-project getkirby/plainkit my-site
-cd my-site
-```
-
-2. Add the theme:
+### Already have a Kirby site? Install the theme directly
 
 ```bash
 composer require eddiedale/index-theme
 ```
 
-3. Remove the conflicting Plainkit files — see the step below.
-
----
-
-#### Track B: ZIP download or Git submodule
-
-1. Download [Plainkit](https://getkirby.com/try) and follow the [Kirby quickstart guide](https://getkirby.com/docs/guide/quickstart) to get it running locally. Then come back here.
-
-2. Install the theme:
-
-**Option 1: ZIP download**
-
-- Download the ZIP from the [releases page](https://github.com/eddiedale/index-theme/releases)
-- Extract it, rename the folder to `index-theme` if needed, and place it in `site/plugins/`
-
-**Option 2: Git submodule** (recommended if your project is a git repo)
+Or download the theme ZIP from the [releases page](https://github.com/eddiedale/index-theme/releases)
+and place it in `site/plugins/index-theme`, or add it as a git submodule:
 
 ```bash
 git submodule add https://github.com/eddiedale/index-theme.git site/plugins/index-theme
 ```
 
-To pull in future theme updates:
-
-```bash
-git submodule update --remote site/plugins/index-theme
-```
-
-3. Remove the conflicting Plainkit files — see the step below.
-
----
-
-### Remove conflicting Plainkit files (both tracks)
-
-Plainkit ships with a few stub files that silently override the theme's versions. Kirby always prefers files in `site/` over plugin files, so these need to go.
-
-From the root of your project, run:
-
-```bash
-rm site/blueprints/site.yml site/blueprints/pages/default.yml site/templates/default.php
-```
-
-These files only exist in a fresh Plainkit — skip any that aren't there.
-
-After this, your structure should look like:
-
-```
-site/
-└── plugins/
-    └── index-theme/
-        ├── index.php
-        ├── blueprints/
-        ├── templates/
-        └── ...
-```
-
----
-
-### Starter content
-
-The theme ships with a `content/` folder with some example content to show how the theme can be used.
-
-> **Note:** Only do this on a fresh install. If you've already added your own content, skip this step — the commands below will delete it.
-
-```bash
-rm -rf content/                                      # removes files from Plainkit
-cp -r site/plugins/index-theme/content/ content/     # copies starter content
-```
-
-Replace it with your own content whenever you're ready.
-
----
+> **Coming from Plainkit?** Delete its stub files first — they silently override
+> the theme's versions:
+> `rm site/blueprints/site.yml site/blueprints/pages/default.yml site/templates/default.php`
 
 ### First run
 
-Navigate to `/panel` in your browser. You'll be prompted to create an admin account — do that first, then start editing your content from the Panel.
+Navigate to `/panel` in your browser, create your admin account, and start
+editing your content from the Panel.
 
 ## Configuration
 

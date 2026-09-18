@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.3.0 — Upcoming
+
+Beginner-friendly installation: the kit.
+
+### Added
+- **Index Kit**: every release now ships `index-kit.zip` — a complete ready-to-run site (Kirby core, theme, starter content bundled). Unzip, open `/panel`, done. Built automatically by a release workflow from the new `kit/` skeleton.
+- `version` field in composer.json so the Kirby Panel shows the theme version. Bump it as part of each release.
+
+### Changed
+- README installation rewritten around two paths: the kit for beginners, `composer require`/submodule for existing Kirby sites. The Plainkit walkthrough, conflicting-files surgery, and manual starter-content copy are gone.
+- Plugin installs are leaner: `kit/`, `content/` (starter content), CI, and the screenshot are excluded from composer dists and release archives via `.gitattributes` export-ignore. They remain in the git repo, where the kit build uses them.
+
+---
+
 ## 1.2.0 — August 31, 2026
 
 A design pass. Same structure, quieter and more coherent: one size, one weight, hierarchy by opacity.
