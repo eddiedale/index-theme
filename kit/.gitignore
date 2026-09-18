@@ -13,6 +13,7 @@
 /site/accounts/*
 !/site/accounts/index.html
 /site/config/.license
+/site/config/secrets.php
 
 # system
 .DS_Store
