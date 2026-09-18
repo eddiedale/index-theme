@@ -1,6 +1,8 @@
 # Changelog
 
-## 1.3.0 — Upcoming
+## 1.3.1 — September 18, 2026
+
+> Released as 1.3.1: a 1.3.0 tag briefly existed on a commit that was rewritten minutes later; Packagist had already locked it (stable versions are immutable), so the version number moved on.
 
 Beginner-friendly installation: the kit.
 
