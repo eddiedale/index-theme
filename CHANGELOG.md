@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.3.2 — September 24, 2026
+
+### Added
+- `article-extra` snippet hook at the end of the blog post template — the same pattern as `header-extra`. The theme renders nothing by default; a site snippet or plugin (e.g. index-comments) can register `article-extra` to append content below a post.
+
+---
+
 ## 1.3.1 — September 18, 2026
 
 > Released as 1.3.1: a 1.3.0 tag briefly existed on a commit that was rewritten minutes later; Packagist had already locked it (stable versions are immutable), so the version number moved on.

@@ -42,6 +42,8 @@
 
     </div>
 
+  <?php snippet('article-extra') ?>
+
 </article>
 
 <?php snippet('footer'); ?>
