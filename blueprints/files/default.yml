@@ -1,7 +1,9 @@
-title: Image
+title: Media
 
-accept: 
-  type: image
+accept:
+  type:
+    - image
+    - video
 
 sections:
   content:
@@ -10,4 +12,3 @@ sections:
       alt:
         label: Alternative Text
         type: text
-          

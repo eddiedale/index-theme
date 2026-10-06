@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.3.3 — Upcoming
+
+### Fixed
+- Video uploads were rejected: the default file blueprint accepted only images. It now accepts image and video files (title changed from "Image" to "Media"), and the CSS reset constrains `video` like `img` so embedded players never overflow the content column. Use Kirby's built-in `(video: filename.mp4)` tag in the content field to embed a player.
+
+---
+
 ## 1.3.2 — September 24, 2026
 
 ### Added
