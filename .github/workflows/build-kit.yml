@@ -23,9 +23,12 @@ jobs:
           php-version: '8.3'
 
       - name: Fetch Kirby core (release archive — bundles vendor/)
+        env:
+          GH_TOKEN: ${{ github.token }}   # authenticated: the anonymous API limit is shared per runner IP
         run: |
-          TAG=$(curl -s https://api.github.com/repos/getkirby/kirby/releases/latest | jq -r .tag_name)
+          TAG=$(gh api repos/getkirby/kirby/releases/latest --jq .tag_name)
           echo "Kirby $TAG"
+          test -n "$TAG" && test "$TAG" != "null"
           curl -sL -o /tmp/kirby.zip "https://github.com/getkirby/kirby/archive/refs/tags/$TAG.zip"
           unzip -q /tmp/kirby.zip -d /tmp
           mv "/tmp/kirby-$TAG" /tmp/kirby
