@@ -14,14 +14,15 @@
   <meta name="theme-color" content="#ffffff">
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2">
 
+  <?php $description = esc($page->metaDescription()->or($page->text_content()->excerpt(255))->value(), 'attr') ?>
   <title><?= $page->title() ?> | <?= $site->title() ?></title>
 
   <meta content="<?= $page->title() ?> | <?= $site->title() ?>" property="og:title">
   <meta content="<?= $page->title() ?> | <?= $site->title() ?>" name="twitter:title">
 
-  <meta content="<?= $page->metaDescription()->or($page->text_content()->striptags()->short(255)) ?>" name="description">
-  <meta content="<?= $page->metaDescription()->or($page->text_content()->striptags()->short(255)) ?>" property="og:description">
-  <meta content="<?= $page->metaDescription()->or($page->text_content()->striptags()->short(255)) ?>" name="twitter:description">
+  <meta content="<?= $description ?>" name="description">
+  <meta content="<?= $description ?>" property="og:description">
+  <meta content="<?= $description ?>" name="twitter:description">
 
   <?php snippet('header-extra') ?>
 

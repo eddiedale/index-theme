@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.4.0 — unreleased
+
+Kirby 6 support. The theme runs on both Kirby 5 and Kirby 6, and the kit now ships Kirby 6.
+
+### Fixed
+- Meta descriptions: the header called `striptags()`, which is not a Kirby field method. Kirby 5 silently ignored it, so the description fell back to raw Markdown/KirbyText, unescaped. Kirby 6 throws on unknown field methods, which made every page fail. The fallback is now `excerpt(255)` (rendered, tags stripped) and the value is escaped for the attribute.
+
+### Changed
+- Kit: PHP 8.3+ required (Kirby 6 minimum). `composer.json` allows `getkirby/cms` `^5.2 || ^6.0`.
+- Kit: removed the `panel.vue.compiler` option, which Kirby 6 no longer has.
+- README: requirements updated (Kirby 5 or 6, PHP 8.3+).
+
+---
+
 ## 1.3.3 — October 6, 2026
 
 ### Fixed

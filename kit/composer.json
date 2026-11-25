@@ -15,8 +15,8 @@
         "docs": "https://github.com/eddiedale/index-theme"
     },
     "require": {
-        "php": "~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0",
-        "getkirby/cms": "^5.2",
+        "php": "~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0",
+        "getkirby/cms": "^5.2 || ^6.0",
         "eddiedale/index-theme": "^1.2"
     },
     "config": {

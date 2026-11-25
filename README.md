@@ -2,7 +2,7 @@
 
 ![Screenshot of the Index Theme for Kirby CMS](kirby-index-theme-screenshot-v1.2.jpg)
 
-A minimal portfolio and blog theme for Kirby CMS. Built for Kirby 5 + PHP 8.2+.
+A minimal portfolio and blog theme for Kirby CMS. Works with Kirby 5 and 6, PHP 8.3+.
 
 **Demo:** [index-theme.sans.supply](https://index-theme.sans.supply/) · **Changelog:** [CHANGELOG.md](CHANGELOG.md)
 
@@ -56,7 +56,7 @@ It's a complete, ready-to-run site: Kirby, the theme, and starter content — al
    `php -S localhost:8000 kirby/router.php`, then visit `http://localhost:8000`.
 3. Open `/panel` in the browser and create your account. Done — start writing.
 
-Requirements: PHP 8.2+ (8.3+ recommended). Kirby is free to try locally;
+Requirements: PHP 8.3+ (the kit ships Kirby 6). Kirby is free to try locally;
 production needs a [Kirby license](https://getkirby.com/buy).
 
 Prefer Composer? `composer create-project` isn't offered — but the next option is just as quick.

@@ -24,7 +24,5 @@ if (is_file($secretsFile) === false) {
 $secrets = is_file($secretsFile) ? require $secretsFile : [];
 
 return array_merge([
-    // the Panel ships precompiled components; the runtime Vue compiler is
-    // only needed by plugins that use inline Vue templates
-    'panel.vue.compiler' => false,
+    // your own options go here
 ], $secrets);
