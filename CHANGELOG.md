@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.4.1 — November 25, 2026
+
+### Fixed
+- Meta descriptions were escaped in attribute mode, which encodes every space as `&#x20;`. Valid, but bloated. They now use normal HTML escaping, which is safe inside the quoted attribute.
+- Kit build: fetches the Kirby release tag through the authenticated GitHub API (the anonymous call hit the runner rate limit and failed the 1.4.0 build), and uses `actions/checkout@v5` (Node 24).
+
+---
+
 ## 1.4.0 — November 25, 2026
 
 Kirby 6 support. The theme runs on both Kirby 5 and Kirby 6, and the kit now ships Kirby 6.

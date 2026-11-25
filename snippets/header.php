@@ -14,7 +14,7 @@
   <meta name="theme-color" content="#ffffff">
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2">
 
-  <?php $description = esc($page->metaDescription()->or($page->text_content()->excerpt(255))->value(), 'attr') ?>
+  <?php $description = esc($page->metaDescription()->or($page->text_content()->excerpt(255))->value()) ?>
   <title><?= $page->title() ?> | <?= $site->title() ?></title>
 
   <meta content="<?= $page->title() ?> | <?= $site->title() ?>" property="og:title">
