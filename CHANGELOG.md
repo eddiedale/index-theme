@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.4.0 — unreleased
+## 1.4.0 — November 25, 2026
 
 Kirby 6 support. The theme runs on both Kirby 5 and Kirby 6, and the kit now ships Kirby 6.
 
